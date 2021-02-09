@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>客户管理</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" href="../static/css/sss.css" th:href="@{/css/sss.css}">
+</head>
+<body>
+<div >
+    <table class="table">
+        <caption>
+            <button type="button" class="btn btn-primary " onclick="addtabletr()">添加车辆</button>&nbsp;
+            <button type="button" class="btn btn-primary " onclick="searchtabletr()">查找车辆</button>
+        </caption>
+        <thead>
+        <tr>
+            <th>一</th>
+            <th>二</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="active">
+            <th>w1</th>
+            <td>sss</td>
+            <td><button type="button" class="btn btn-primary " onclick="updateSss(1)">修改</button>
+                <button type="button" class="btn btn-primary " onclick="deleteSss(1)">删除</button>
+            </td>
+        </tr>
+        <tr class="success">
+            <th>w2</th>
+            <td>sss</td>
+            <td><button type="button" class="btn btn-primary " onclick="updateSss(2)">修改</button>
+                <button type="button" class="btn btn-primary " onclick="deleteSss(2)">删除</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<ul id="search" class="sssadd"><span onclick="closesearch()">&times;</span>
+    <li>
+        <label for="yi2"  class="input-tips2">第一：</label>
+        <div class="inputOuter2">
+            <input type="text" id="yi2" name="yi2" maxlength="16" />
+        </div>
+    </li>
+    <li>
+        <div >
+            <button type="button" class="btn btn-primary " onclick="searchSss()">搜索车辆</button>
+        </div>
+    </li>
+</ul>
+<ul id="sssadd" class="sssadd"><span onclick="closeadd()">&times;</span>
+    <li>
+        <label for="yi"  class="input-tips2">第一：</label>
+        <div class="inputOuter2">
+            <input type="text" id="yi" name="yi" maxlength="16" />
+        </div>
+    </li>
+    <li>
+        <label for="er"  class="input-tips2">第二：</label>
+        <div class="inputOuter2">
+            <input type="text" id="er" name="er" maxlength="16" />
+        </div>
+    </li>
+    <li>
+        <div >
+            <button type="button" class="btn btn-primary " onclick="saveSss()">保存/修改车辆</button>
+        </div>
+    </li>
+</ul>
+<script src="../static/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+<script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<script src="../static/js/sss.js" th:src="@{/js/sss.js}"></script>
+<script type="text/javascript">
+    initHtml();
+</script>
+</body>
+</html>

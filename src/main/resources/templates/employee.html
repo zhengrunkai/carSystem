@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>用户管理</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/employee.css" th:href="@{/css/employee.css}">
+</head>
+<body >
+<form name="form" accept-charset="utf-8"  action="/empsave" method="post">
+    <ul >
+        <li>
+            <label for="empname"  class="input-tips2">姓名：</label>
+            <div class="inputOuter2">
+                <input type="text" id="empname" name="empname" th:value="${sysemp.empname}" maxlength="16" />
+            </div>
+        </li>
+        <li>
+            <label for="uid" class="input-tips2">用户ID：</label>
+            <div >
+                <input type="text" id="uid" name="uid" th:value="${sysemp.uid}" maxlength="16"/>
+            </div>
+        </li>
+        <li>
+            <label for="did" class="input-tips2">部门ID：</label>
+            <div >
+                <input type="text" id="did"  name="did" th:value="${sysemp.did}" maxlength="16"/>
+            </div>
+        </li>
+        <li>
+            <label for="empposition" class="input-tips2">职位：</label>
+            <div >
+                <input type="text" id="empposition"  name="empposition" th:value="${sysemp.empposition}" maxlength="16"/>
+            </div>
+        </li>
+        <li>
+            <label for="empsex" class="input-tips2">性别：</label>
+            <div >
+                <input type="text" id="empsex"  name="empsex" th:value="${sysemp.empsex}" maxlength="16"/>
+            </div>
+        </li>
+        <li>
+            <label for="empage" class="input-tips2">年龄：</label>
+            <div >
+                <input type="text" id="empage"  name="empage" th:value="${sysemp.empage}" maxlength="16"/>
+            </div>
+        </li>
+        <li>
+            <label for="emptelephone" class="input-tips2">电话：</label>
+            <div >
+                <input type="text" id="emptelephone"  name="emptelephone" th:value="${sysemp.emptelephone}" maxlength="16"/>
+            </div>
+        </li>
+        <li>
+            <label for="empbirthday" class="input-tips2">生日：</label>
+            <div >
+                <input type="text" id="empbirthday"  name="empbirthday" th:value="${sysemp.empbirthday}" maxlength="16"/>
+            </div>
+        </li>
+        <li>
+            <label for="empaddress" class="input-tips2">住址：</label>
+            <div >
+                <input type="text" id="empaddress"  name="empaddress" th:value="${sysemp.empaddress}" maxlength="16"/>
+            </div>
+        </li>
+        <li>
+            <label for="empsex" class="input-tips2" th:text="${sysemp.empstatus}"></label>
+        </li>
+        <li>
+            <div >
+                <input type="submit" value="修改"/>
+                <div th:utext="${statusinfo}"></div>
+            </div>
+        </li>
+    </ul>
+</form>
+</body>
+</html>

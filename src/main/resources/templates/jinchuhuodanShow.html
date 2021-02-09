@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>客户管理</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" href="../static/css/jinchuhuodan.css" th:href="@{/css/jinchuhuodan.css}">
+</head>
+<body>
+<div >
+    <table class="table">
+        <caption>
+            <button type="button" class="btn btn-primary " onclick="addtabletr()">添加进出库单</button>&nbsp;
+            <button type="button" class="btn btn-primary " onclick="searchtabletr()">查找进出库单</button>
+        </caption>
+        <thead>
+        <tr>
+            <th>进出货单编号</th>
+            <th>车辆型号</th>
+            <th>供应商</th>
+            <th>签收时间</th>
+            <th>出库时间</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="active">
+            <td>2312</td>
+            <td>新BMW2系多功能旅行车</td>
+            <td>广州宝马车行</td>
+            <td>2017.3.23</td>
+            <td>2017.6.5</td>
+            <td><button type="button" class="btn btn-primary " onclick="updateJinchuhuodan(1)">修改</button>
+                <button type="button" class="btn btn-primary " onclick="deleteJinchuhuodan(1)">删除</button>
+            </td>
+        </tr>
+        <tr class="success">
+            <td>3342</td>
+            <td>BMW3系四门轿车2019款</td>
+            <td>惠州宝马车行</td>
+            <td>2018.4.3</td>
+            <td>2019.5.7</td>
+            <td><button type="button" class="btn btn-primary " onclick="updateJinchuhuodan(1)">修改</button>
+                <button type="button" class="btn btn-primary " onclick="deleteJinchuhuodan(1)">删除</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<ul id="search" class="jinchuhuodanadd"><span onclick="closesearch()">&times;</span>
+    <li>
+        <label for="jinchuhuodan_id2"  class="input-tips2">客户ID：</label>
+        <div class="inputOuter2">
+            <input type="text" id="jinchuhuodan_id2" name="jinchuhuodan_id2" maxlength="16" />
+        </div>
+    </li>
+    <li>
+        <div >
+            <button type="button" class="btn btn-primary " onclick="searchJinchuhuodan()">搜索进出库单</button>
+        </div>
+    </li>
+</ul>
+<ul id="jinchuhuodanadd" class="jinchuhuodanadd"><span onclick="closeadd()">&times;</span>
+    <li>
+        <label for="jinchuhuodan_id"  class="input-tips2">进出货单编号：</label>
+        <div class="inputOuter2">
+            <input type="text" id="jinchuhuodan_id" name="jinchuhuodan_id" maxlength="16" />
+        </div>
+    </li>
+    <li>
+        <label for="jinchuhuodan_cheliangxinghao"  class="input-tips2">车辆型号：</label>
+        <div class="inputOuter2">
+            <input type="text" id="jinchuhuodan_cheliangxinghao" name="jinchuhuodan_cheliangxinghao" maxlength="30" />
+        </div>
+    </li>
+    <li>
+        <label for="jinchuhuodan_gongyingshang"  class="input-tips2">供应商：</label>
+        <div class="inputOuter2">
+            <input type="text" id="jinchuhuodan_gongyingshang" name="jinchuhuodan_gongyingshang" maxlength="16" />
+        </div>
+    </li>
+    <li>
+        <label for="jinchuhuodan_qianshou_time"  class="input-tips2">签收时间：</label>
+        <div class="inputOuter2">
+            <input type="text" id="jinchuhuodan_qianshou_time" name="jinchuhuodan_qianshou_time" maxlength="16" />
+        </div>
+    </li>
+    <li>
+        <label for="jinchuhuodan_chuku_time" class="input-tips2">出库时间：</label>
+        <div >
+            <input type="text" id="jinchuhuodan_chuku_time"  name="jinchuhuodan_chuku_time" />
+        </div>
+    </li>
+    <li>
+        <div >
+            <button type="button" class="btn btn-primary " onclick="saveJinchuhuodan()">保存/修改此进出库单</button>
+        </div>
+    </li>
+</ul>
+<script src="../static/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+<script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<script src="../static/js/jinchuhuodan.js" th:src="@{/js/jinchuhuodan.js}"></script>
+<script type="text/javascript">
+    initHtml();
+</script>
+</body>
+</html>

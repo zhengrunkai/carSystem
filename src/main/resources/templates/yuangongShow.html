@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>人员管理</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" href="../static/css/yuangong.css" th:href="@{/css/yuangong.css}">
+</head>
+<body>
+<div >
+    <table class="table">
+        <caption>
+            <button type="button" class="btn btn-primary " onclick="addtabletr()">添加员工</button>&nbsp;
+            <button type="button" class="btn btn-primary " onclick="searchtabletr()">查找员工</button>
+        </caption>
+        <thead>
+        <tr>
+            <th>人员ID</th>
+            <th>名字</th>
+            <th>性别</th>
+            <th>联系电话</th>
+            <th>业绩</th>
+            <th>评价</th>
+            <th>隶属部门</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="active">
+            <td>21</td>
+            <td>小明</td>
+            <td>男</td>
+            <td>13766787765</td>
+            <td>3辆/月</td>
+            <td>自主评价</td>
+            <td>销售部</td>
+            <td><button type="button" class="btn btn-primary " onclick="updateYuangong(1)">修改</button>
+                <button type="button" class="btn btn-primary " onclick="deleteYuangong(1)">删除</button>
+            </td>
+        </tr>
+        <tr class="success">
+            <td>31</td>
+            <td>小青</td>
+            <td>女</td>
+            <td>15467657897</td>
+            <td>可以为空</td>
+            <td>很有礼貌，人很热情</td>
+            <td>售后部</td>
+            <td><button type="button" class="btn btn-primary " onclick="updateYuangong(1)">修改</button>
+                <button type="button" class="btn btn-primary " onclick="deleteYuangong(1)">删除</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<ul id="search" class="yuangongadd"><span onclick="closesearch()">&times;</span>
+    <li>
+        <label for="yuangong_id2"  class="input-tips2">客户ID：</label>
+        <div class="inputOuter2">
+            <input type="text" id="yuangong_id2" name="yuangong_id2" maxlength="16" />
+        </div>
+    </li>
+    <li>
+        <div >
+            <button type="button" class="btn btn-primary " onclick="searchYuangong()">搜索员工</button>
+        </div>
+    </li>
+</ul>
+<ul id="yuangongadd" class="yuangongadd"><span onclick="closeadd()">&times;</span>
+    <li>
+        <label for="yuangong_id"  class="input-tips2">人员ID：</label>
+        <div class="inputOuter2">
+            <input type="text" id="yuangong_id" name="yuangong_id" maxlength="16" />
+        </div>
+    </li>
+    <li>
+        <label for="yuangong_name"  class="input-tips2">名字：</label>
+        <div class="inputOuter2">
+            <input type="text" id="yuangong_name" name="yuangong_name" maxlength="16" />
+        </div>
+    </li>
+    <li>
+        <label for="yuangong_sex"  class="input-tips2">性别：</label>
+        <div class="inputOuter2">
+            <input type="text" id="yuangong_sex" name="yuangong_sex" maxlength="16" />
+        </div>
+    </li>
+    <li>
+        <label for="yuangong_phone"  class="input-tips2">联系电话：</label>
+        <div class="inputOuter2">
+            <input type="text" id="yuangong_phone" name="yuangong_phone" maxlength="16" />
+        </div>
+    </li>
+    <li>
+        <label for="yuangong_yeji" class="input-tips2">业绩：</label>
+        <div >
+            <input type="text" id="yuangong_yeji"  name="yuangong_yeji" />
+        </div>
+    </li>
+    <li>
+        <label for="yuangong_pingjia" class="input-tips2">评价：</label>
+        <div >
+            <input type="text" id="yuangong_pingjia"  name="yuangong_pingjia" />
+        </div>
+    </li>
+    <li>
+        <label for="yuangong_bumen" class="input-tips2">隶属部门：</label>
+        <div >
+            <input type="text" id="yuangong_bumen"  name="yuangong_bumen" />
+        </div>
+    </li>
+    <li>
+        <div >
+            <button type="button" class="btn btn-primary " onclick="saveYuangong()">保存/修改员工</button>
+        </div>
+    </li>
+</ul>
+<script src="../static/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+<script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<script src="../static/js/yuangong.js" th:src="@{/js/yuangong.js}"></script>
+<script type="text/javascript">
+    initHtml();
+</script>
+</body>
+</html>

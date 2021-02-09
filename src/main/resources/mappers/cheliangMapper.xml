@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mymendian.mymendian.dao.CheliangDao" >
+    <resultMap id="CheliangMap" type="com.mymendian.mymendian.model.Cheliang" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="cheliang_id" property="cheliang_id" jdbcType="INTEGER" />
+        <result column="cheliang_xinghao" property="cheliang_xinghao" jdbcType="INTEGER" />
+        <result column="cheliang_danjia" property="cheliang_danjia" jdbcType="VARCHAR" />
+        <result column="cheliang_cheqi" property="cheliang_cheqi" jdbcType="INTEGER" />
+        <result column="cheliang_chelunyangshi" property="cheliang_chelunyangshi" jdbcType="VARCHAR" />
+        <result column="cheliang_neishitiao" property="cheliang_neishitiao" jdbcType="VARCHAR" />
+        <result column="cheliang_zuoyicaizhi" property="cheliang_zuoyicaizhi" jdbcType="VARCHAR" />
+    </resultMap>
+    <insert id="insertCheliang" useGeneratedKeys="true" keyProperty="cheliang.cheliang_id" parameterType="com.mymendian.mymendian.model.Cheliang">
+        insert into Cheliang (cheliang_id,cheliang_xinghao,cheliang_danjia,cheliang_cheqi
+          ,cheliang_chelunyangshi,cheliang_neishitiao,cheliang_zuoyicaizhi)
+        values (#{cheliang_id},#{cheliang_xinghao},#{cheliang_danjia},#{cheliang_cheqi}
+        ,#{cheliang_chelunyangshi},#{cheliang_neishitiao},#{cheliang_zuoyicaizhi})
+    </insert>
+    <update id="updateCheliang"  parameterType="com.mymendian.mymendian.model.Cheliang">
+        update Cheliang set
+        cheliang_xinghao=#{cheliang_xinghao},
+        cheliang_danjia=#{cheliang_danjia},
+        cheliang_cheqi=#{cheliang_cheqi},
+        cheliang_chelunyangshi=#{cheliang_chelunyangshi},
+        cheliang_neishitiao=#{cheliang_neishitiaresultTypeo},
+        cheliang_zuoyicaizhi=#{cheliang_zuoyicaizhi}
+        where cheliang_id=#{cheliang_id}
+    </update>
+    <delete id="deleteCheliang" parameterType="INTEGER">
+        delete from cheliang where cheliang_id=#{cheliang_id}
+    </delete>
+    <select id="findCheliangById" resultMap="CheliangMap" parameterType="INTEGER">
+        select * from cheliang
+        <where>
+            cheliang_id=#{cheliang_id}
+        </where>
+    </select>
+    <select id="findCheliangByCheliang_id" resultMap="CheliangMap" parameterType="INTEGER">
+        select * from cheliang
+        <where>
+            cheliang_id=#{cheliang_id}
+        </where>
+    </select>
+    <select id="findCheliangLast" resultMap="CheliangMap" parameterType="INTEGER">
+        select * from cheliang limit #{n}
+    </select>
+</mapper>

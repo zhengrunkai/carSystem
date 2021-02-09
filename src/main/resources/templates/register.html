@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>注册用户</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/login.css" th:href="@{/css/login.css}">
+</head>
+<body>
+<div class="box">
+    <div id="header">
+        <h1>注册</h1>
+    </div>
+    <form  accept-charset="utf-8"  action="/registerVerify" method="post">
+        <div class="group">
+            <input class="inputMaterial" type="text" id="username" name="username" maxlength="16" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>用户名</label>
+        </div>
+        <div class="group">
+            <input class="inputMaterial" type="password" id="password"  name="password" maxlength="16" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>密码</label>
+        </div>
+        <div class="group">
+            <input class="inputMaterial" type="useremail" id="useremail"  name="useremail" maxlength="17" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>邮箱</label>
+        </div>
+
+        <div id="footer-box">
+            <p class="footer-text">
+                <input type="submit" value="注册"/>&nbsp;&nbsp;
+                <a href="/login"><span class="sign-up" >登录</span></a></p>
+            <div th:utext="${statusinfo}"></div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

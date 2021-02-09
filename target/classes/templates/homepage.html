@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>汽车销售管理系统</title>
+</head>
+<frameset rows="100px,*" >
+    <frame src="top" th:src="top" noresize="noresize"/>
+    <!--将下部分又分为左右两部分-->
+    <frameset cols="150px,*">
+        <frame src="left" th:src="left"  />
+        <!--接收来自left的锚点跳转-->
+          <frame name="right" th:frameborder="1" />
+    </frameset>
+</frameset>
+</html>

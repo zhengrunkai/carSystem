@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mymendian.mymendian.dao.JinchuhuodanDao" >
+    <resultMap id="JinchuhuodanMap" type="com.mymendian.mymendian.model.Jinchuhuodan" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="jinchuhuodan_id" property="jinchuhuodan_id" jdbcType="INTEGER" />
+        <result column="jinchuhuodan_cheliangxinghao" property="jinchuhuodan_cheliangxinghao" jdbcType="VARCHAR" />
+        <result column="jinchuhuodan_gongyingshang" property="jinchuhuodan_gongyingshang" jdbcType="INTEGER" />
+        <result column="jinchuhuodan_qianshou_time" property="jinchuhuodan_qianshou_time" jdbcType="VARCHAR" />
+        <result column="jinchuhuodan_chuku_time" property="jinchuhuodan_chuku_time" jdbcType="VARCHAR" />
+    </resultMap>
+    <insert id="insertJinchuhuodan" useGeneratedKeys="true" keyProperty="jinchuhuodan.id" parameterType="com.mymendian.mymendian.model.Jinchuhuodan">
+        insert into Jinchuhuodan (jinchuhuodan_id,jinchuhuodan_cheliangxinghao,jinchuhuodan_gongyingshang
+          ,jinchuhuodan_qianshou_time,jinchuhuodan_chuku_time)
+        values (#{jinchuhuodan_id},#{jinchuhuodan_cheliangxinghao},#{jinchuhuodan_gongyingshang}
+        ,#{jinchuhuodan_qianshou_time},#{jinchuhuodan_chuku_time})
+    </insert>
+    <update id="updateJinchuhuodan"  parameterType="com.mymendian.mymendian.model.Jinchuhuodan">
+        update Jinchuhuodan set
+        jinchuhuodan_cheliangxinghao=#{jinchuhuodan_cheliangxinghao},
+        jinchuhuodan_gongyingshang=#{jinchuhuodan_gongyingshang},
+        jinchuhuodan_qianshou_time=#{jinchuhuodan_qianshou_time},
+        jinchuhuodan_chuku_time=#{jinchuhuodan_chuku_time}
+        where jinchuhuodan_id=#{jinchuhuodan_id}
+    </update>
+    <delete id="deleteJinchuhuodan" parameterType="INTEGER">
+        delete from jinchuhuodan where jinchuhuodan_id=#{jinchuhuodan_id}
+    </delete>
+    <select id="findJinchuhuodanById" resultMap="JinchuhuodanMap" parameterType="INTEGER">
+        select * from jinchuhuodan
+        <where>
+            jinchuhuodan_id=#{jinchuhuodan_id}
+        </where>
+    </select>
+    <select id="findJinchuhuodanByJinchuhuodan_id" resultMap="JinchuhuodanMap" parameterType="INTEGER">
+        select * from jinchuhuodan
+        <where>
+            jinchuhuodan_id=#{jinchuhuodan_id}
+        </where>
+    </select>
+    <select id="findJinchuhuodanLast" resultMap="JinchuhuodanMap" parameterType="INTEGER">
+        select * from jinchuhuodan limit #{n}
+    </select>
+</mapper>

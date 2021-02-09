@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>添加部门</title>
+    <style type="text/css">
+        ul li{  list-style: none;  }
+    </style>
+    <script src="../static/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+</head>
+<body>
+<div >
+    <form name="form" accept-charset="utf-8" action="/sysdeptaddSave" method="post" >
+        <ul >
+            <li>
+                <label for="deptid"  class="input-tips2">部门ID：</label>
+                <div class="inputOuter2">
+                    <input type="text" id="deptid" name="deptid" maxlength="16" />
+                </div>
+            </li>
+            <li>
+                <label for="deptname"  class="input-tips2">部门名称：</label>
+                <div class="inputOuter2">
+                    <input type="text" id="deptname" name="deptname" maxlength="16" />
+                </div>
+            </li>
+            <li>
+                <label for="deptmanageemployeeid"  class="input-tips2">部门管理员ID：</label>
+                <div class="inputOuter2">
+                    <input type="text" id="deptmanageemployeeid" name="deptmanageemployeeid" maxlength="16" />
+                </div>
+            </li>
+            <li>
+                <label for="deptmanageemployeename"  class="input-tips2">部门管理员：</label>
+                <div class="inputOuter2">
+                    <input type="text" id="deptmanageemployeename" name="deptmanageemployeename" maxlength="16" />
+                </div>
+            </li>
+            <li>
+                <label for="deptremark" class="input-tips2">备注：</label>
+                <div >
+                    <input type="text" id="deptremark"  name="deptremark"/>
+                </div>
+            </li>
+            <li>
+                <div >
+                    <input type="submit" value="添加"/>
+                </div>
+            </li>
+        </ul>
+    </form>
+</div>
+</body>
+</html>

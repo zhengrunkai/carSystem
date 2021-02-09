@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mymendian.mymendian.dao.SyscustomerDao" >
+    <resultMap id="SyscustomerMap" type="com.mymendian.mymendian.model.Syscustomer" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="customerid" property="customerid" jdbcType="INTEGER" />
+        <result column="customertelephone" property="customertelephone" jdbcType="VARCHAR" />
+        <result column="customerphonetypename" property="customerphonetypename" jdbcType="INTEGER" />
+        <result column="customername" property="customername" jdbcType="VARCHAR" />
+        <result column="customerwhetherflow" property="customerwhetherflow" jdbcType="VARCHAR" />
+        <result column="isoutmealflow" property="isoutmealflow" jdbcType="VARCHAR" />
+        <result column="customermealname" property="customermealname" jdbcType="VARCHAR" />
+    </resultMap>
+    <insert id="insertSyscustomer" useGeneratedKeys="true" keyProperty="syscustomer.id" parameterType="com.mymendian.mymendian.model.Syscustomer">
+        insert into Syscustomer (customerid,customertelephone,customerphonetypename
+          ,customername,customerwhetherflow,isoutmealflow,customermealname)
+        values (#{customerid},#{customertelephone},#{customerphonetypename}
+        ,#{customername},#{customerwhetherflow},#{isoutmealflow},#{customermealname})
+    </insert>
+    <update id="updateSyscustomer"  parameterType="com.mymendian.mymendian.model.Syscustomer">
+        update Syscustomer set
+        customertelephone=#{customertelephone},
+        customerphonetypename=#{customerphonetypename},
+        customername=#{customername},
+        customerwhetherflow=#{customerwhetherflow},
+        isoutmealflow=#{isoutmealflow},
+        customermealname=#{customermealname}
+        where customerid=#{customerid}
+    </update>
+    <delete id="deleteSyscustomer" parameterType="INTEGER">
+        delete from syscustomer where id=#{id}
+    </delete>
+    <select id="findSyscustomerById" resultMap="SyscustomerMap" parameterType="INTEGER">
+        select * from syscustomer
+        <where>
+            id=#{id}
+        </where>
+    </select>
+    <select id="findSyscustomerByCustomerid" resultMap="SyscustomerMap" parameterType="INTEGER">
+        select * from syscustomer
+        <where>
+            customerid=#{customerid}
+        </where>
+    </select>
+    <select id="findSyscustomerLast" resultMap="SyscustomerMap" parameterType="INTEGER">
+        select * from syscustomer limit #{n}
+    </select>
+</mapper>

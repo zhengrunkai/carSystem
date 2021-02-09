@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mymendian.mymendian.dao.SysdeptDao" >
+    <resultMap id="sysdeptMap" type="com.mymendian.mymendian.model.Sysdept" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="deptid" property="deptid" jdbcType="INTEGER" />
+        <result column="deptname" property="deptname" jdbcType="VARCHAR" />
+        <result column="deptmanageemployeeid" property="deptmanageemployeeid" jdbcType="INTEGER" />
+        <result column="deptmanageemployeename" property="deptmanageemployeename" jdbcType="VARCHAR" />
+        <result column="deptremark" property="deptremark" jdbcType="VARCHAR" />
+    </resultMap>
+    <insert id="insertSysdept" useGeneratedKeys="true" keyProperty="id" parameterType="com.mymendian.mymendian.model.Sysdept">
+        insert into sysdept (deptid,deptname,deptmanageemployeeid,deptmanageemployeename,deptremark)
+        values (#{deptid},#{deptname},#{deptmanageemployeeid},#{deptmanageemployeename},#{deptremark})
+    </insert>
+    <update id="updateSysdept"  parameterType="com.mymendian.mymendian.model.Sysdept">
+        update sysdept set deptid=#{deptid},deptname=#{deptname},deptmanageemployeeid=#{deptmanageemployeeid},deptmanageemployeename=#{deptmanageemployeename},deptremark=#{deptremark}
+        where id=#{id}
+    </update>
+    <delete id="deleteSysdept" parameterType="INTEGER">
+        delete from sysdept where id=#{id}
+    </delete>
+    <select id="findSysdeptById" resultMap="sysdeptMap" parameterType="INTEGER">
+        select * from sysdept
+        <where>
+            id=#{id}
+        </where>
+    </select>
+    <select id="findSysdeptByDeptid" resultMap="sysdeptMap" parameterType="INTEGER">
+        select * from sysdept
+        <where>
+            deptid=#{deptid}
+        </where>
+    </select>
+</mapper>

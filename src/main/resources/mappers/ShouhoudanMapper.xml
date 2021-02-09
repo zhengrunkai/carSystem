@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mymendian.mymendian.dao.ShouhoudanDao" >
+    <resultMap id="ShouhoudanMap" type="com.mymendian.mymendian.model.Shouhoudan" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="shouhoudan_id" property="shouhoudan_id" jdbcType="INTEGER" />
+        <result column="shouhoudan_time" property="shouhoudan_time" jdbcType="VARCHAR" />
+        <result column="shouhoudan_wenti" property="shouhoudan_wenti" jdbcType="INTEGER" />
+        <result column="shouhoudan_shouhou_man" property="shouhoudan_shouhou_man" jdbcType="VARCHAR" />
+        <result column="shouhoudan_kehu_name" property="shouhoudan_kehu_name" jdbcType="VARCHAR" />
+    </resultMap>
+    <insert id="insertShouhoudan" useGeneratedKeys="true" keyProperty="dingdan.id" parameterType="com.mymendian.mymendian.model.Shouhoudan">
+        insert into Shouhoudan (shouhoudan_id,shouhoudan_time,shouhoudan_wenti
+          ,shouhoudan_shouhou_man,shouhoudan_kehu_name)
+        values (#{shouhoudan_id},#{shouhoudan_time},#{shouhoudan_wenti}
+        ,#{shouhoudan_shouhou_man},#{shouhoudan_kehu_name})
+    </insert>
+    <update id="updateShouhoudan"  parameterType="com.mymendian.mymendian.model.Shouhoudan">
+        update Shouhoudan set
+        shouhoudan_time=#{shouhoudan_time},
+        shouhoudan_wenti=#{shouhoudan_wenti},
+        shouhoudan_shouhou_man=#{shouhoudan_shouhou_man},
+        shouhoudan_kehu_name=#{shouhoudan_kehu_name}
+        where shouhoudan_id=#{shouhoudan_id}
+    </update>
+    <delete id="deleteShouhoudan" parameterType="INTEGER">
+        delete from shouhoudan where shouhoudan_id=#{shouhoudan_id}
+    </delete>
+    <select id="findShouhoudanById" resultMap="ShouhoudanMap" parameterType="INTEGER">
+        select * from shouhoudan
+        <where>
+            shouhoudan_id=#{shouhoudan_id}
+        </where>
+    </select>
+    <select id="findShouhoudanByShouhoudan_id" resultMap="ShouhoudanMap" parameterType="INTEGER">
+        select * from shouhoudan
+        <where>
+            shouhoudan_id=#{shouhoudan_id}
+        </where>
+    </select>
+    <select id="findShouhoudanLast" resultMap="ShouhoudanMap" parameterType="INTEGER">
+        select * from shouhoudan limit #{n}
+    </select>
+</mapper>

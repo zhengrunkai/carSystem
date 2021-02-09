@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>订单管理</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" href="../static/css/dingdan.css" th:href="@{/css/dingdan.css}">
+</head>
+<body>
+<div >
+    <table class="table">
+        <caption>
+            <button type="button" class="btn btn-primary " onclick="addtabletr()">添加订单</button>&nbsp;
+            <button type="button" class="btn btn-primary " onclick="searchtabletr()">查找订单</button>
+        </caption>
+        <thead>
+        <tr>
+            <th>订单编号</th>
+            <th>时间</th>
+            <th>经手的销售人员名字</th>
+            <th>客户名字</th>
+            <th>车辆</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="active">
+            <td>2312</td>
+            <td>2019.02.03</td>
+            <td>小青</td>
+            <td>郑卡卡</td>
+            <td>BMW3系四门轿车2019款</td>
+            <td><button type="button" class="btn btn-primary " onclick="updateDingdan(1)">修改</button>
+                <button type="button" class="btn btn-primary " onclick="deleteDingdan(1)">删除</button>
+            </td>
+        </tr>
+        <tr class="success">
+            <td>3342</td>
+            <td>2019.04.01</td>
+            <td>小青</td>
+            <td>黄看看</td>
+            <td>BMW3系四门轿车2017款</td>
+            <td><button type="button" class="btn btn-primary " onclick="updateDingdan(2)">修改</button>
+                <button type="button" class="btn btn-primary " onclick="deleteDingdan(2)">删除</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<ul id="search" class="dingdanadd"><span onclick="closesearch()">&times;</span>
+    <li>
+        <label for="dingdan_id2"  class="input-tips2">客户ID：</label>
+        <div class="inputOuter2">
+            <input type="text" id="dingdan_id2" name="dingdan_id2" maxlength="16" />
+        </div>
+    </li>
+    <li>
+        <div >
+            <button type="button" class="btn btn-primary " onclick="searchDingdan()">搜索订单</button>
+        </div>
+    </li>
+</ul>
+<ul id="dingdanadd" class="dingdanadd"><span onclick="closeadd()">&times;</span>
+    <li>
+        <label for="dingdan_id"  class="input-tips2">订单货单编号：</label>
+        <div class="inputOuter2">
+            <input type="text" id="dingdan_id" name="dingdan_id" maxlength="16" />
+        </div>
+    </li>
+    <li>
+        <label for="dingdan_time"  class="input-tips2">时间：</label>
+        <div class="inputOuter2">
+            <input type="text" id="dingdan_time" name="dingdan_time" maxlength="16" />
+        </div>
+    </li>
+    <li>
+        <label for="dingdan_xiaoshou_man"  class="input-tips2">经手的销售人员名字：</label>
+        <div class="inputOuter2">
+            <input type="text" id="dingdan_xiaoshou_man" name="dingdan_xiaoshou_man" maxlength="16" />
+        </div>
+    </li>
+    <li>
+        <label for="dingdan_kehu_name"  class="input-tips2">客户名字：</label>
+        <div class="inputOuter2">
+            <input type="text" id="dingdan_kehu_name" name="dingdan_kehu_name" maxlength="16" />
+        </div>
+    </li>
+    <li>
+        <label for="dingdan_cheliang" class="input-tips2">车辆：</label>
+        <div >
+            <input type="text" id="dingdan_cheliang"  name="dingdan_cheliang" />
+        </div>
+    </li>
+    <li>
+        <div >
+            <button type="button" class="btn btn-primary " onclick="saveDingdan()">保存/修改此进出库单</button>
+        </div>
+    </li>
+</ul>
+<script src="../static/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+<script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<script src="../static/js/dingdan.js" th:src="@{/js/dingdan.js}"></script>
+<script type="text/javascript">
+    initHtml();
+</script>
+</body>
+</html>
