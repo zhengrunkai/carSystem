@@ -10,5 +10,5 @@
 
 ##### 2、修改 application.properties 数据库中连接
 
-##### 3、运行，登录 http://localhost:8080/login，账号密码：qqq / 111。
+##### 3、运行，登录 http://localhost:8080/login 账号 and 密码：qqq / 111。
 
